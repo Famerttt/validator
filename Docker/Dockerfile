@@ -5,8 +5,14 @@ RUN yum -y install python36
 RUN yum -y install python36-pip
 RUN python3.6 -m pip install --upgrade pip
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python3.6 -m pip install tornado==6.0.3\
+    && pip install numpy==1.18.1 \
+    && pip install pandas==1.0.1 \
+    && pip install Flask==1.1.1 \
+    && pip install werkzeug \
+    && pip install werkzeug \
+
+
 COPY . .
 CMD ["python", "./init_tornado.py"]
 EXPOSE 8081
