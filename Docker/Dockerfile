@@ -9,8 +9,7 @@ RUN python3.6 -m pip install tornado==6.0.3\
     && pip install numpy==1.18.1 \
     && pip install pandas==1.0.1 \
     && pip install Flask==1.1.1 \
-    && pip install werkzeug \
-    && pip install werkzeug \
+    && pip install werkzeug
 
 
 COPY . .
