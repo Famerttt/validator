@@ -36,8 +36,9 @@ def new_validator():
 
     obj = ModelValidation(home_path + '/' + filename, target_name, error_code)
     validator = Data_validation(obj)
-    validation_status, message = validator.full_validation()
-    result = {'validationStatus': validation_status, "error_message": message}
+    validation_status, message, anomaly, rul, fault = validator.full_validation()
+    result = {'validationStatus': validation_status, "error_message": message,"anomaly": anomaly, "rul": rul,
+              "fault": fault}
     os.remove(home_path + '/' + filename)
 
     return jsonify(result), 200

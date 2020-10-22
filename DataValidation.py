@@ -20,10 +20,12 @@ class Data_validation:
     def full_validation(self):
         validation_flag = True
         message = ''
-        how_many_tasks_the_dataset_is_suitable_for = 0 # задумка на будущее для каких задач датасет
+        anomaly = True
+        rul = False
+        fault = False
+        #how_many_tasks_the_dataset_is_suitable_for = 0 # задумка на будущее для каких задач датасет
 
         if self.data.get_target() is None or self.data.get_errorCode() is None:
-            print('Подходит для поиска аномалий')
             if self._checking_for_missing_values():
                 validation_flag = False
                 message += 'There are missing values'
@@ -37,9 +39,12 @@ class Data_validation:
                 if not self._get_deferent_target():
                     validation_flag = False
                     message += "Lack of all variations of Bit_code to learn"
+                else:
+                    rul = True
+                    fault = True
 
             if self._checking_for_missing_values():
                 validation_flag = False
                 message += '/n There are missing values'
 
-        return validation_flag, message
+        return validation_flag, message, anomaly, rul, fault
