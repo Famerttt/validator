@@ -8,3 +8,5 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 CMD ["python", "./init_tornado.py"]
+EXPOSE 8081
+
