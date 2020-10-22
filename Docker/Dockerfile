@@ -1,8 +1,8 @@
 FROM centos:centos7
 
 RUN yum -y update
-RUN yum -y install python3.6
-RUN yum -y install python3.6-pip
+RUN yum -y install python36
+RUN yum -y install python36-pip
 RUN python3.6 -m pip install --upgrade pip
 
 RUN python3.6 -m pip install wheel
