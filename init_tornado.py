@@ -1,4 +1,4 @@
-from  flask import  Flask
+import  Flask
 from app_flask import app
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
