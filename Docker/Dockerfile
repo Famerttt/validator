@@ -13,7 +13,7 @@ RUN python3.6 -m pip install Flask
 RUN python3.6 -m pip install werkzeug
 
 
-COPY . .
+
 CMD ["python", "init_tornado.py"]
 EXPOSE 8081
 
