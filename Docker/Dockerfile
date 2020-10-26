@@ -15,5 +15,4 @@ RUN python3.6 -m pip install werkzeug
 
 COPY . .
 CMD ["python3.6", "./init_tornado.py"]
-EXPOSE 8081
 
