@@ -22,7 +22,7 @@ def new_validator():
             file.save(home_path + '/' + filename)
     except:
         abort(500)
-
+    # часть кода с ловлей ошибок переделать!
     try:
         target_name = request.form['targetName']
     except:

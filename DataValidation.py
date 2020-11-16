@@ -6,16 +6,16 @@ class Data_validation:
         self.data = data
 
     def _get_deferent_target(self):
-        return len(np.unique(self.data.get_dataframe()[self.data.get_target()])) == (int(self.data.get_errorCode()) + 1)
+        return len(np.unique(self.data.dataframe[self.data.target])) == (int(self.data.errorCode) + 1)
 
     def _chek_target(self):
-        if self.data.get_target() in list(self.data.get_columns()):
+        if self.data.target in list(self.data.get_columns()):
             return True
         else:
             return False
 
     def _checking_for_missing_values(self):
-        return self.data.get_dataframe().isnull().values.any()
+        return self.data.dataframe.isnull().values.any()
 
     def full_validation(self):
         validation_flag = True
@@ -25,7 +25,7 @@ class Data_validation:
         fault = False
         #how_many_tasks_the_dataset_is_suitable_for = 0 # задумка на будущее для каких задач датасет
 
-        if self.data.get_target() is None or self.data.get_errorCode() is None:
+        if self.data.target is None or self.data.errorCode is None:
             if self._checking_for_missing_values():
                 validation_flag = False
                 message += 'There are missing values'
