@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
 
-
+# добавим свойства
 class ModelValidation:
 
     def __init__(self, path, target=None, ErrorCode=None):
@@ -10,17 +9,37 @@ class ModelValidation:
         self._errorCode = ErrorCode
         self._dataframe = pd.read_csv(path)
 
-    def get_dataset_path(self):
+    @property
+    def dataset_path(self):
         return self._dataset_path
 
-    def get_target(self):
+    @dataset_path.setter
+    def dataset_path(self, dataset_path):
+         self._dataset_path = dataset_path
+
+    @property
+    def target(self):
         return self._target
 
-    def get_errorCode(self):
+    @target.setter
+    def target(self, target):
+         self._target = target
+
+    @property
+    def errorCode(self):
         return self._errorCode
 
-    def get_dataframe(self):
+    @errorCode.setter
+    def errorCode(self, errorCode ):
+         self._errorCode = errorCode
+
+    @property
+    def dataframe(self):
         return self._dataframe
+
+    @dataframe.setter
+    def dataframe(self, dataframe):
+         self._dataframe = dataframe
 
     def get_columns(self):
         return self._dataframe.columns
