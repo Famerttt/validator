@@ -11,6 +11,7 @@ logging.basicConfig(filename="sample.log", level=logging.DEBUG)
 
 @app.route('/validation', methods=['POST'])
 def new_validator():
+    # добавить передачу BIT_code выхода устроиства из строя(ранне было 4)
     file = request.files['file']
     if not file:
         abort(400)

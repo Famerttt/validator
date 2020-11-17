@@ -5,19 +5,25 @@ class Data_validation:
     def __init__(self, data):
         self.data = data
 
-    def _get_deferent_target(self):
+    @property
+    def data(self):
+        return  self.data
+    @data.setter
+    def data(self, data): # добавить валидацую, проверка на тип класса
+        self.data = data
+    def _get_deferent_target(self): # проверяем есть ли поломки устроиства, ищем код выхода из строя
         return len(np.unique(self.data.dataframe[self.data.target])) == (int(self.data.errorCode) + 1)
 
-    def _chek_target(self):
+    def _chek_target(self): # проверяем наличие таргета
         if self.data.target in list(self.data.get_columns()):
             return True
         else:
             return False
 
-    def _checking_for_missing_values(self):
+    def _checking_for_missing_values(self): # есть ли пустые значения
         return self.data.dataframe.isnull().values.any()
 
-    def full_validation(self):
+    def full_validation(self): # основной цикл валидации, можете подравить. В коде есть недачет
         validation_flag = True
         message = ''
         anomaly = True
